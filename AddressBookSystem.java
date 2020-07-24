@@ -26,6 +26,14 @@ public class AddressBookSystem
 	
 	void edit()
 	{
+		if(addressBook.isEmpty())
+		{
+			System.out.println("--------------------------------------");
+			System.out.println("\nAddress Book is Empty!!\n");
+			System.out.println("--------------------------------------");
+			return;
+		}
+		
 		System.out.println("Enter the fullname of the person whose details you want to edit");
 		String name = sc.nextLine();
 	
@@ -37,8 +45,10 @@ public class AddressBookSystem
 				String toContinue="yes";
 				while(toContinue.equals("yes")) 
 				{
+					System.out.println("--------------------------------------");
 					System.out.println("\nThe details of the person are:");
 					System.out.println(addressBook.get(i)+"\n");
+					System.out.println("--------------------------------------");
 					System.out.println("Choose an option to edit:");
 					System.out.println("1.FullName\t2.Address\t3.phoneNumber\t4.zipCode");
 					int option = sc.nextInt();
@@ -91,7 +101,15 @@ public class AddressBookSystem
 	
 	void search()
 	{
-
+		
+		if(addressBook.isEmpty())
+		{
+			System.out.println("--------------------------------------");
+			System.out.println("\nAddress Book is Empty!!\n");
+			System.out.println("--------------------------------------");
+			return;
+		}
+		
 		System.out.println("Enter the fullname of the person to search");
 		String name=sc.nextLine();
 	
@@ -115,8 +133,10 @@ public class AddressBookSystem
 	{
 		if(addressBook.isEmpty())
 		{
+			System.out.println("--------------------------------------");
 			System.out.println("\nAddress Book is Empty!!");
-			System.out.println("Cannot delete a person.!")
+			System.out.println("Cannot delete a person.!\n");
+			System.out.println("--------------------------------------");
 			return;
 		}
 		System.out.println("Enter the fullname of the pereson to delete");
@@ -143,7 +163,9 @@ public class AddressBookSystem
 	{
 		if(addressBook.isEmpty())
 		{
-			System.out.println("\nAddress Book is Empty!!");
+			System.out.println("--------------------------------------");
+			System.out.println("\nAddress Book is Empty!!\n");
+			System.out.println("--------------------------------------");
 			return;
 		}
 		Collections.sort(addressBook, new Comparator<Person>() {
@@ -159,13 +181,16 @@ public class AddressBookSystem
 		System.out.println("--------------------------------------");
 		for(Person p: addressBook)
 			System.out.println("\n"+p);
+		System.out.println("--------------------------------------");
 	}
 	
 	void sortByZip()
 	{
 		if(addressBook.isEmpty())
 		{
+			System.out.println("--------------------------------------");
 			System.out.println("\nAddress Book is Empty!!");
+			System.out.println("--------------------------------------");
 			return;
 		}
 		Collections.sort(addressBook, new Comparator<Person>() {
@@ -181,19 +206,23 @@ public class AddressBookSystem
 		System.out.println("--------------------------------------");
 		for(Person p: addressBook)
 			System.out.println("\n"+p);
+		System.out.println("--------------------------------------");
 	}
 	
 	void display()
 	{
 		if(addressBook.isEmpty())
 		{
-			System.out.println("\nAddress Book is Empty!!");
+			System.out.println("--------------------------------------");
+			System.out.println("\nAddress Book is Empty!!\n");
+			System.out.println("--------------------------------------");
 			return;
 		}
 		System.out.println("\nAddress Book:");
 		System.out.println("----------------------------------------");
 		for(Person p: addressBook)
 			System.out.println("\n"+p);
+		System.out.println("--------------------------------------");
 	}
 
 	boolean isEmpty()
